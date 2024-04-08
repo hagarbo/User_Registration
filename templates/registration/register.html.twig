@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<h1>Register</h1>
+
+	{{ form_errors(registrationForm) }}
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.email,{
+        row_attr: {
+            class: 'form-group mb-3'
+        },
+        input_attr: {
+            class: 'form-control'
+        }
+    }) }}
+	{{ form_row(registrationForm.plainPassword, {
+            label: 'Password',
+            row_attr: {
+            class: 'form-group mb-3'
+            }
+        }) }}
+	{{ form_row(registrationForm.agreeTerms,{
+        label_attr: {
+            class: 'form-check-label'
+        },
+        row_attr: {
+            class: 'form-check mb-3'
+        }
+    }) }}
+
+	<button type="submit" class="btn btn-success mb-3">Register</button>
+	{{ form_end(registrationForm) }}
+{% endblock %}
